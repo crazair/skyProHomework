@@ -14,15 +14,8 @@ public class Task1 {
 //  10 9 8 7 6 5 4 3 2 1
 
         int i = 1;
-        while (true) {
-            System.out.print(i + " ");
-            i++;
-            if (i == 11) {
-                System.out.println("");
-                break;
-            }
-        }
-
+        while (i <= 10) System.out.print(i++ + " ");
+        System.out.println("");
         for (int j = 10; j >= 1; j--) System.out.print(j + " ");
     }
 }
