@@ -1,6 +1,9 @@
 package sky.pro.homework.hw15;
 
 import java.util.Arrays;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 public class Task1 {
 
@@ -38,6 +41,20 @@ public class Task1 {
 
         long[] longs = {1L, 2L, 3L};
         Arrays.stream(longs).forEach(System.out::println);
+
+        printArray(IntStream.of(ints).boxed().toArray(Integer[]::new));
+        printArray(LongStream.of(longs).boxed().toArray(Long[]::new));
+    }
+
+    /**
+     * Параметры типа могут представлять только ссылочные типы, а не примитивные типы (например, int, double и char).
+     * Ограничение Дженериков.
+     */
+    public static <E> void printArray(E[] inputArray) {
+        for (E element : inputArray) {
+            System.out.printf("%s ", element);
+        }
+        System.out.println();
     }
 
 }
