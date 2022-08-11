@@ -18,8 +18,8 @@ public class Task5 {
         int[] ints = {-6, 2, 5, -8, 8, 10, 4, -7, 12, -1};
 
         for (int i = 0; i < ints.length; i++) {
-            for (int j = i; j < ints.length; j++) {
-                if (ints[i] + ints[j] == -2 && i != j) {
+            for (int j = i + 1; j < ints.length; j++) {
+                if (ints[i] + ints[j] == -2) {
                     System.out.println("Cумма чисел = -2. Первое число: " + ints[i] + " Второе число: " + ints[j]);
                 }
             }

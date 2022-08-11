@@ -50,7 +50,7 @@ public class Task1 {
      * Параметры типа могут представлять только ссылочные типы, а не примитивные типы (например, int, double и char).
      * Ограничение Дженериков.
      */
-    public static <E> void printArray(E[] inputArray) {
+    private static <E> void printArray(E[] inputArray) {
         for (E element : inputArray) {
             System.out.printf("%s ", element);
         }
