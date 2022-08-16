@@ -1,7 +1,6 @@
 package sky.pro.homework.hw16;
+
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class Task1 {
 /*
@@ -33,18 +32,27 @@ public class Task1 {
 // Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
 // в формате: «Сумма трат за месяц составила … рублей».
 
-        int[] arr = generateRandomArray();
-        System.out.println("Сумма трат за месяц составила " + Arrays.stream(arr).sum() + " рублей».");
+        int[] arr = generateRandomArray(30);
+        System.out.printf("Сумма трат за месяц составила %s рублей».",
+                Arrays.stream(arr)
+                        .sum()
+        );
 
 // ### Задание 2
 // Следующая задача — найти минимальную и максимальную трату за день.
 // Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
 // в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
 
-        System.out.println("Минимальная сумма трат за день составила " + Arrays.stream(arr).min().orElse(0)
-                + " рублей.");
-        System.out.println("Максимальная сумма трат за день составила " + Arrays.stream(arr).max().orElse(0)
-                + " рублей».");
+        System.out.printf("Минимальная сумма трат за день составила %s рублей.",
+                Arrays.stream(arr)
+                        .min()
+                        .orElse(0)
+        );
+        System.out.printf("Максимальная сумма трат за день составила %s рублей.",
+                Arrays.stream(arr)
+                        .max()
+                        .orElse(0)
+        );
 
 // ### Задание 3
 // А теперь нам нужно понять, какую в среднем сумму наша компания тратила в течение данных 30 дней.
@@ -52,9 +60,11 @@ public class Task1 {
 // поделить на количество дней), и вывести в консоль результат в формате: «Средняя сумма трат за месяц составила
 // … рублей».
 //**Важно помнить:** подсчет среднего значения может иметь остаток (то есть быть не целым, а дробным числом).
-
-        System.out.println("Средняя сумма трат за месяц составила " + Arrays.stream(arr).average().orElse(0)
-                + " рублей.");
+        System.out.printf("Средняя сумма трат за месяц составила %s рублей.",
+                Arrays.stream(arr)
+                        .average()
+                        .orElse(0)
+        );
 
 // ### Задание 4
 // Отойдем от подсчетов.
@@ -68,17 +78,17 @@ public class Task1 {
 // **Важно**: не используйте дополнительные массивы для решения этой задачи. Необходимо корректно пройти по массиву
 // циклом и распечатать его элементы в правильном порядке.
 
-        char[] reverseFullName = { 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         System.out.println(new StringBuilder(new String(reverseFullName)).reverse());
 
-        for (int i = reverseFullName.length-1; i >= 0 ; i--){
+        for (int i = reverseFullName.length - 1; i >= 0; i--) {
             System.out.print(reverseFullName[i]);
         }
     }
 
-    private static int[] generateRandomArray() {
+    private static int[] generateRandomArray(int arrLength) {
         java.util.Random random = new java.util.Random();
-        int[] arr = new int[30];
+        int[] arr = new int[arrLength];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt(100_000) + 100_000;
         }
