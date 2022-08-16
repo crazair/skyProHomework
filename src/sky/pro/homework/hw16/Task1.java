@@ -33,7 +33,7 @@ public class Task1 {
 // в формате: «Сумма трат за месяц составила … рублей».
 
         int[] arr = generateRandomArray(30);
-        System.out.printf("Сумма трат за месяц составила %s рублей».",
+        System.out.printf("Сумма трат за месяц составила %s рублей».\n",
                 Arrays.stream(arr)
                         .sum()
         );
@@ -43,12 +43,12 @@ public class Task1 {
 // Нужно написать программу, которая решит эту задачу, и вывести в консоль результат
 // в формате: «Минимальная сумма трат за день составила … рублей. Максимальная сумма трат за день составила … рублей».
 
-        System.out.printf("Минимальная сумма трат за день составила %s рублей.",
+        System.out.printf("Минимальная сумма трат за день составила %s рублей.\n",
                 Arrays.stream(arr)
                         .min()
                         .orElse(0)
         );
-        System.out.printf("Максимальная сумма трат за день составила %s рублей.",
+        System.out.printf("Максимальная сумма трат за день составила %s рублей.\n",
                 Arrays.stream(arr)
                         .max()
                         .orElse(0)
@@ -60,7 +60,7 @@ public class Task1 {
 // поделить на количество дней), и вывести в консоль результат в формате: «Средняя сумма трат за месяц составила
 // … рублей».
 //**Важно помнить:** подсчет среднего значения может иметь остаток (то есть быть не целым, а дробным числом).
-        System.out.printf("Средняя сумма трат за месяц составила %s рублей.",
+        System.out.printf("Средняя сумма трат за месяц составила %s рублей.\n",
                 Arrays.stream(arr)
                         .average()
                         .orElse(0)
@@ -86,7 +86,7 @@ public class Task1 {
         }
     }
 
-    private static int[] generateRandomArray(int arrLength) {
+    private static int[] generateRandomArray(final int arrLength) {
         java.util.Random random = new java.util.Random();
         int[] arr = new int[arrLength];
         for (int i = 0; i < arr.length; i++) {
