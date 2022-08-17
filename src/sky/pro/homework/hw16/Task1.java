@@ -33,7 +33,7 @@ public class Task1 {
 // в формате: «Сумма трат за месяц составила … рублей».
 
         int[] arr = generateRandomArray(30);
-        System.out.printf("Сумма трат за месяц составила %s рублей».\n",
+        System.out.printf("Сумма трат за месяц составила %s рублей.\n",
                 Arrays.stream(arr)
                         .sum()
         );
