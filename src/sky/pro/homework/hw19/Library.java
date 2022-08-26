@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Library {
 
-    private final Book[] books;
+    private Book[] books;
 
     public Library(int lenMass) {
         books = new Book[lenMass];
@@ -14,11 +14,11 @@ public class Library {
         this.books = books;
     }
 
-    private Book[] addBook(Book[] books, Book book) {
+    public void addBook(Book book) {
         Book[] newBooks = new Book[books.length + 1];
         System.arraycopy(books, 0, newBooks, 0, books.length);
         newBooks[books.length] = book;
-        return newBooks;
+        books = newBooks;
     }
 
     public void printBooks() {
