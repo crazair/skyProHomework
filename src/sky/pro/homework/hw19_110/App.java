@@ -1,4 +1,4 @@
-package sky.pro.homework.hw19;
+package sky.pro.homework.hw19_110;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -6,6 +6,10 @@ import java.util.Arrays;
 public class App {
 
     public static void main(String[] args) {
+        hw110();
+    }
+
+    private static void hw19() {
 
         // ## Минимальный уровень
         //
@@ -81,6 +85,58 @@ public class App {
         library.printBookByName("The Stand");
         library.changeYearPublicationByName("The Stand", 2023);
         library.printBookByName("The Stand");
+    }
+
+    private static void hw110() {
+        //        ### 1.10 **Простой уровень**
+        //
+        //        Реализовать методы toString, equals и hashCode в классах Author и Book, которые были созданы на
+        //        прошлом уроке. Обратите внимание, что toString книги не должен дублировать код из toString автора,
+        //        а должен делегировать (вызывать) его версию метода.
+
+
+        //        ### **Сложный уровень**
+        //
+        //        Реализуйте метод toString в классе Library, который выводит все книги библиотеки в формате:
+        //              Library:
+        //                      книга1
+        //                      книга2
+        //
+        //        Использовать геттеры при написании этого метода запрещено. Нужно корректно делегировать формирование
+        //        строки методу toString из книги.
+        //          Пример вызова метода и формата вывода смотрите в разделе «Отладка».
+
+        System.out.println("Authors:");
+        Author stephenKing = new Author("Stephen", "King");
+        Author stephenKing2 = new Author("Stephen", "King");
+        Author levTolstoy = new Author("Lev", "Tolstoy");
+        System.out.println("Author copies equal: " + stephenKing.equals(stephenKing2));
+        System.out.println("Author copies equal by hashCode: " + (stephenKing.hashCode() == stephenKing2.hashCode()));
+        System.out.println("Authors equal: " + stephenKing.equals(levTolstoy));
+        System.out.println("Authors equal by hashCode: " + (stephenKing.hashCode() == levTolstoy.hashCode()));
+
+        System.out.println(stephenKing);
+        System.out.println(levTolstoy);
+
+        System.out.println("==============================");
+
+        System.out.println("Books:");
+        Book theStand = new Book("The Stand", stephenKing, 1976);
+        Book theStand2 = new Book("The Stand", stephenKing, 1976);
+        Book warAndPeace = new Book("War and Peace", levTolstoy, 1869);
+        System.out.println("Book copies equal: " + theStand.equals(theStand2));
+        System.out.println("Book copies equal by hashCode: " + (theStand.hashCode() == theStand2.hashCode()));
+        System.out.println("Books equal: " + theStand.equals(warAndPeace));
+        System.out.println("Books equal by hashCode: " + (theStand.hashCode() == warAndPeace.hashCode()));
+        System.out.println(theStand);
+        System.out.println(warAndPeace);
+
+        System.out.println("==============================");
+
+        Library library = new Library(2);
+        library.addBook(theStand);
+        library.addBook(warAndPeace);
+        System.out.println(library);
     }
 
     private static Book[] addBook(Book[] books, Book book) {
