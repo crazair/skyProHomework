@@ -1,6 +1,4 @@
-package sky.pro.homework.hw19_110;
-
-import java.util.Objects;
+package sky.pro.homework.hw19;
 
 public class Book {
 
@@ -32,24 +30,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return name + ": " + author;
+        return author + ": " + name + ": " + yearPublication;
     }
 
-    public String stringBookToPrint() {
+    public String stringBookToPrint(){
         //“The Stand by Stephen King was published in 1978”
         return name + " by " + author + " was published in " + yearPublication;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return yearPublication == book.yearPublication && name.equals(book.name) && author.equals(book.author);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, author, yearPublication);
     }
 }

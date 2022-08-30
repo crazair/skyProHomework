@@ -1,7 +1,6 @@
-package sky.pro.homework.hw19_110;
+package sky.pro.homework.hw19;
 
 import java.util.Arrays;
-import java.util.Objects;
 
 public class Library {
 
@@ -36,17 +35,5 @@ public class Library {
         Arrays.stream(books)
                 .filter(book -> book.getName().equals(bookName))
                 .forEach(book -> book.setYearPublication(newYearPublication));
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder().append("Library:");
-        Arrays.stream(books)
-                .filter(Objects::nonNull)
-                .forEach(book -> sb
-                        .append("\nBook: ")
-                        .append(book)
-                );
-        return sb.toString();
     }
 }
