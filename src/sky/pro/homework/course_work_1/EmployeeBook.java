@@ -3,7 +3,6 @@ package sky.pro.homework.course_work_1;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 /**
@@ -70,18 +69,20 @@ public class EmployeeBook {
      * Если в массиве нет свободного места, создаём новы массив размером +1
      *
      * @param employee - новый сотрудник
+     * @return int - возвращаем индекс массива в который вставлен новый сотрудник
      */
-    public void addEmployee(Employee employee) {
+    public int addEmployee(Employee employee) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
                 employees[i] = employee;
-                return;
+                return i;
             }
         }
         Employee[] newEmployees = new Employee[employees.length + 1];
         System.arraycopy(employees, 0, newEmployees, 0, employees.length);
         newEmployees[employees.length] = employee;
         employees = newEmployees;
+        return employees.length - 1;
     }
 
     /**
