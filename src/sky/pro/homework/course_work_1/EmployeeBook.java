@@ -1,5 +1,6 @@
 package sky.pro.homework.course_work_1;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -135,18 +136,16 @@ public class EmployeeBook {
      * Метод общей печати в консоль сотрудников по всем департаментам с указанием номера
      */
     public void printEmployeesByAllDepartment() {
-        //TODO точно можно лучше, надо подумать как сделать, например через map
-        AtomicInteger depCounter = new AtomicInteger(-1);
         Stream.of(employees)
                 .filter(Objects::nonNull)
                 .sorted(Comparator.comparing(Employee::getDepartment))
-                .forEach(employee -> {
-                    if (depCounter.get() != employee.getDepartment()) {
-                        depCounter.set(employee.getDepartment());
-                        System.out.println("Номер департамента: " + employee.getDepartment());
-                    }
-                    System.out.println("    Сотрудник: " + employee.getFullName());
-                });
+                .map(employee -> new String[]{
+                        "Номер департамента: " + employee.getDepartment(),
+                        "    Сотрудник: " + employee.getFullName() + " (" + employee.getId() + ")"
+                })
+                .flatMap(strings -> Arrays.stream(strings))
+                .distinct()
+                .forEach(System.out::println);
     }
 
     /**
