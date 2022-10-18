@@ -1,0 +1,26 @@
+package sky.pro.homework.javacore.hw23.animals;
+
+public class Flying extends Birds {
+
+    private String movementType;
+
+    public Flying(String name, int years, String environment, String movementType) {
+        super(name, years, environment);
+        this.movementType = movementType == null || movementType.isBlank() ? "default" : movementType;
+    }
+
+    public void fly() {
+        System.out.println("Летаю!");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("Кушаю!");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Сплю!");
+    }
+
+}
