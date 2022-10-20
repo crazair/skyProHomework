@@ -32,4 +32,16 @@ public class Truck extends Transport{
         System.out.println("Возвращаем максимальную скорость!");
         return 200;
     }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Прохожу диагностику!");
+        isPassDiagnostics = true;
+    }
+
+    @Override
+    public boolean isPassDiagnostics() {
+        return isPassDiagnostics;
+    }
+
 }

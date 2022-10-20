@@ -32,4 +32,7 @@ public abstract class Driver<T extends Transport> {
         System.out.println("Заправляемся");
     }
 
+    public boolean isDriversLicense() {
+        return isDriversLicense;
+    }
 }
