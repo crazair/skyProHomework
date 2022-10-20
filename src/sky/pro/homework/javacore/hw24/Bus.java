@@ -1,6 +1,6 @@
 package sky.pro.homework.javacore.hw24;
 
-public class Bus extends Transport implements Competing{
+public class Bus extends Transport{
 
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);

@@ -1,6 +1,6 @@
 package sky.pro.homework.javacore.hw24;
 
-public abstract class Transport {
+public abstract class Transport implements Competing {
 
     private final String brand;
     private final String model;
