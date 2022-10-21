@@ -10,5 +10,8 @@ public class DriverD extends Driver {
     public void startMoving() {
         System.out.println("Водитель D управляет автобусом " + getTransport().getBrand() + " " +
                 getTransport().getModel() + " и будет участвовать в заезде");
+        if(!isDriversLicense()){
+            throw new RuntimeException("Необходимо указать тип прав!");
+        }
     }
 }

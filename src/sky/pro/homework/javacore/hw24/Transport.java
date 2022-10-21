@@ -6,6 +6,8 @@ public abstract class Transport implements Competing {
     private final String model;
     private double engineVolume;
 
+    protected boolean isPassDiagnostics;
+
     public Transport(String brand, String model, double engineVolume) {
         this.brand = brand == null || brand.isBlank() ? "default" : brand;
         this.model = model == null || model.isBlank() ? "default" : model;
@@ -15,7 +17,8 @@ public abstract class Transport implements Competing {
     public abstract void startMoving();
 
     public abstract void finishMoving();
-
+    public abstract void passDiagnostics();
+    public abstract boolean isPassDiagnostics();
 
     public String getBrand() {
         return brand;

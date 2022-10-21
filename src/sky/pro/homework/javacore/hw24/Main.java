@@ -20,5 +20,20 @@ public class Main {
         driverD.setTransport(bus);
         driverD.startMoving();
 
+        try {
+            car.passDiagnostics();
+            if (!car.isPassDiagnostics()){
+                throw new RuntimeException("Автомобиль не прошёл диагностику!!!");
+            }
+            truck.passDiagnostics();
+            if (!truck.isPassDiagnostics()){
+                throw new RuntimeException("Грузовик не прошёл диагностику!!!");
+            }
+            bus.isPassDiagnostics();
+        }catch (RuntimeException e){
+            System.out.println("Ошибка: " + e);
+        }
+
+
     }
 }

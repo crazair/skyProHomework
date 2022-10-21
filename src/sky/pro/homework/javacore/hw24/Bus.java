@@ -17,6 +17,11 @@ public class Bus extends Transport{
     }
 
     @Override
+    public void passDiagnostics() throws RuntimeException {
+        throw new RuntimeException("Автобус в диагностике не требуется!");
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Зашли на пит-стоп!");
     }
@@ -32,4 +37,10 @@ public class Bus extends Transport{
         System.out.println("Возвращаем максимальную скорость!");
         return 120;
     }
+
+    @Override
+    public boolean isPassDiagnostics() throws RuntimeException{
+        throw new RuntimeException("Автобус в диагностике не требуется!");
+    }
+
 }

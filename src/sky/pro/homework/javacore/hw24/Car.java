@@ -17,6 +17,17 @@ public class Car extends Transport{
     }
 
     @Override
+    public void passDiagnostics() {
+        System.out.println("Прохожу диагностику!");
+        isPassDiagnostics = true;
+    }
+
+    @Override
+    public boolean isPassDiagnostics() {
+        return isPassDiagnostics;
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Зашли на пит-стоп!");
     }
