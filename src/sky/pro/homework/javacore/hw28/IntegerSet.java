@@ -12,9 +12,8 @@ public class IntegerSet {
             integerSet.add((int) (Math.random() * 1000));
         }
 
-        integerSet.stream()
-                .filter(integer -> integer % 2 != 0)
-                .forEach(System.out::println);
+        integerSet.removeIf(integer -> integer % 2 != 0);
+        integerSet.forEach(System.out::println);
     }
 
 }

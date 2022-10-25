@@ -57,11 +57,7 @@ public class MultiplicationTasks {
 
         @Override
         public String toString() {
-            return "Task{" +
-                    "multiplier1=" + multiplier1 +
-                    ", multiplier2=" + multiplier2 +
-                    ", result=" + result +
-                    '}';
+            return "Task: " + multiplier1 + " * " + multiplier2 + " = " + result;
         }
     }
 }

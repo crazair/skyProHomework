@@ -25,8 +25,15 @@ public class PassportWork {
     private void addPassport(Passport passport){
         if (passportList.contains(passport)){
             System.out.println("Паспорт уже есть в коллекции! Подробности по паспорту: " + passport);
-            passportList.remove(passport);
-            passportList.add(passport); // обновляем поля
+            for (Passport p : passportList){
+                if(p.equals(passport)){
+                    p.setSurname(passport.getSurname());
+                    p.setName(passport.getName());
+                    p.setMiddleName(passport.getMiddleName());
+                    p.setBirthDate(passport.getBirthDate());
+                    break;
+                }
+            }
         }else {
             passportList.add(passport);
         }
