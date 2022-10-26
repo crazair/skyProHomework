@@ -1,6 +1,7 @@
 package sky.pro.homework.javacore.hw29;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class RandomUtils {
@@ -20,8 +21,8 @@ public class RandomUtils {
         return (int) (1000 + (Math.random() * 1000));
     }
 
-    public static ArrayList<Integer> getRandomArrayListInteger(int length) {
-        ArrayList<Integer> integers = new ArrayList<>();
+    public static List<Integer> getRandomArrayListInteger(int length) {
+        List<Integer> integers = new ArrayList<>();
         for (int i = 0; i < length; i++) {
             integers.add((int) (Math.random() * 1000));
         }
