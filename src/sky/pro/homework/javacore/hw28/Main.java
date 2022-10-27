@@ -6,17 +6,16 @@ public class Main {
 
         Basket basket = new Basket();
 
-        Product bananas = new Product("Бананы", 100, 1);
-        Product tomate = new Product("Томаты", 500, 2);
+        Product bananas = new Product("Бананы", 100);
+        Product tomate = new Product("Томаты", 500);
 
-        basket.addProduct(bananas);
+        basket.addProduct(bananas, 5);
         basket.addProduct(tomate);
         basket.deleteProduct(tomate);
-        basket.addProduct(tomate);
+        basket.addProduct(tomate, 3);
 
-        Recipe recipe = new Recipe("Пицца", basket.getProductSet());
+        Recipe recipe = new Recipe("Пицца", basket.getProductMap());
 
         System.out.println(recipe.getRecipePrice());
-
     }
 }

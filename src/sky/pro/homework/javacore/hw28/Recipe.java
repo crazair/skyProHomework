@@ -1,23 +1,20 @@
 package sky.pro.homework.javacore.hw28;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Recipe {
 
-
     private String recipeName;
-    private Set<Product> productSet = new HashSet<>();
+    private Map<Product, Integer> productMap = new HashMap<>();
     private double recipePrice;
 
-    public Recipe(String recipeName, Set<Product> productSet) {
+    public Recipe(String recipeName, Map<Product, Integer> productMap) {
         this.recipeName = recipeName;
-        this.productSet = productSet;
+        this.productMap = productMap;
 
-        recipePrice = productSet.stream()
-                .mapToDouble(value -> value.getPrice())
-                .sum();
+        for (Map.Entry<Product, Integer> entry: productMap.entrySet()){
+            recipePrice += entry.getValue() * entry.getKey().getPrice();
+        }
     }
 
     public String getRecipeName() {
@@ -28,12 +25,12 @@ public class Recipe {
         this.recipeName = recipeName;
     }
 
-    public Set<Product> getProductSet() {
-        return productSet;
+    public Map<Product, Integer> getProductMap() {
+        return productMap;
     }
 
-    public void setProductSet(Set<Product> productSet) {
-        this.productSet = productSet;
+    public void setProductMap(Map<Product, Integer> productMap) {
+        this.productMap = productMap;
     }
 
     public double getRecipePrice() {
@@ -49,12 +46,11 @@ public class Recipe {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
-        return Double.compare(recipe.recipePrice, recipePrice) == 0 && Objects.equals(recipeName, recipe.recipeName) && Objects.equals(productSet, recipe.productSet);
+        return Double.compare(recipe.recipePrice, recipePrice) == 0 && Objects.equals(recipeName, recipe.recipeName) && Objects.equals(productMap, recipe.productMap);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(recipeName, productSet, recipePrice);
+        return Objects.hash(recipeName, productMap, recipePrice);
     }
-
 }
