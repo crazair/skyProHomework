@@ -43,6 +43,10 @@ public class DayBook {
         activeTasks.forEach((integer, task) -> System.out.println(task));
     }
 
+    public void litePrintAll() {
+        activeTasks.forEach((integer, task) -> System.out.println(task.getLiteInformation()));
+    }
+
     public void printDeletedTasks() {
         archiveTasks.forEach((integer, task) -> System.out.println(task));
     }

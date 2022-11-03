@@ -3,9 +3,13 @@ package sky.pro.homework.javacore.course_work_2;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Task implements Repeatable {
+
+    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
 
     public enum TaskType {
         PERSONAL_TASK("личная"), WORK_TASK("рабочая");
@@ -41,17 +45,20 @@ public class Task implements Repeatable {
     private String title;
     private String description;
     private final LocalDateTime createDateTime;
+
+    private LocalTime executionTime;
     private LocalDateTime finishDateTime;
     private TaskType type;
     private TaskFrequency frequency;
     private boolean isDeleted;
 
-    public Task(String title, String description, LocalDateTime finishDateTime, TaskType type, TaskFrequency frequency) {
+    public Task(String title, String description, LocalTime executionTime, LocalDateTime finishDateTime, TaskType type, TaskFrequency frequency) {
         id = ++counter;
         createDateTime = LocalDateTime.now();
 
         setTitle(title);
         setDescription(description);
+        setExecutionTime(executionTime);
         setFinishDateTime(finishDateTime);
         setType(type);
         setFrequency(frequency);
@@ -87,8 +94,16 @@ public class Task implements Repeatable {
         return id;
     }
 
+    public LocalTime getExecutionTime() {
+        return executionTime;
+    }
+
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public void setExecutionTime(LocalTime executionTime) {
+        this.executionTime = executionTime;
     }
 
     @Override
@@ -136,14 +151,19 @@ public class Task implements Repeatable {
     public String toString() {
         return "Задача{" +
                 "номер=" + id +
-                ", заголовок='" + title + '\'' +
-                ", описание='" + description + '\'' +
-                ", дата и время создания=" + createDateTime +
-                ", дата и время завершения=" + finishDateTime +
+                ", заголовок='" + title +
+                ", описание='" + description +
+                ", дата создания=" + createDateTime.format(DATE_FORMATTER) +
+                ", планируемое время выполнения=" + executionTime.format(TIME_FORMATTER) +
+                ", дата завершения=" + finishDateTime.format(DATE_FORMATTER) +
                 ", тип=" + type.getName() +
                 ", частота=" + frequency.getName() +
                 ", архивная=" + isDeleted +
                 '}';
+    }
+
+    public String getLiteInformation(){
+        return "Задача номер " + id + ": заголовок='" + title + ", описание='" + description;
     }
 
     @Override
@@ -156,6 +176,6 @@ public class Task implements Repeatable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, createDateTime, finishDateTime, type, frequency, isDeleted);
+        return Objects.hash(id, title, description, createDateTime, executionTime, finishDateTime, type, frequency, isDeleted);
     }
 }
