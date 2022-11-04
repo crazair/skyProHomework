@@ -31,7 +31,7 @@ public class DayBook {
             return;
         }
         System.out.println("Удаляем task: " + task);
-        activeTasks.remove(task);
+        activeTasks.remove(task.getId());
         addArchiveTask(task);
     }
 
